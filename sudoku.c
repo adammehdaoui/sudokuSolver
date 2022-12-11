@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/* #include <unistd.h> */
+#include <unistd.h>
 #include "sudoku.h"
 
 /* void initialize_empty_board(Board grid) */
@@ -120,6 +120,8 @@ int permutations (Board grid, int ligne, int colonne)
     }
     /*backtracking : on remet la zone à zéro*/
     grid[ligne][colonne] = 0;
+    print_board(grid);
+    usleep(100000);
 
     return 0;
 }
