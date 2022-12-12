@@ -17,7 +17,13 @@ void print_board(Board grid){
     for(i=0; i<9; i++){
         printf("-------------------------------------\n");
         for(e=0; e<9; e++){
-            if(e == 0){
+            if(grid[i][e]==0 && e==0){
+                printf("|   |");
+            }
+            else if(grid[i][e]==0){
+                printf("   |");
+            }
+            else if(e == 0){
                 printf("| %d |",grid[i][e]);
             }
             else{
