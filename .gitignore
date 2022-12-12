@@ -1,0 +1,5 @@
+.DS_Store
+in_out.o
+main.o
+sudoku
+sudoku.o
