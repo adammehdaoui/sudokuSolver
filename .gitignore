@@ -1,6 +1,6 @@
 .DS_Store
 .idea
-in_out.o
 main.o
+in_out.o
 sudoku.o
 sudoku
