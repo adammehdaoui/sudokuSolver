@@ -34,10 +34,10 @@ void print_board(Board grid){
     }
     printf("-------------------------------------\n");
 }
-
+/*Pareil tu peux le remplacer par un boolean*/
 /*renvoie 1 si la grille est valide, 0 sinon*/
 int grid_valid(Board grid){
-    int x, y;
+    int x, y = 0;
 
     for(x=0; x<9; x++){
         for(y=0; y<9; y++){
@@ -50,9 +50,10 @@ int grid_valid(Board grid){
     return 1;
 }
 
+/*idem bool*/
 /*renvoie 1 si la valeur se trouve dans la même ligne, 0 sinon*/
 int line_valid(Board grid, int x, int value){
-    int y;
+    int y = 0;
 
     for(y=0; y<9; y++){
         if(grid[x][y]==value){
@@ -63,6 +64,7 @@ int line_valid(Board grid, int x, int value){
     return 0;
 }
 
+/*idem bool*/
 /*renvoie 1 si la valeur se trouve dans la même colonne, 0 sinon*/
 int column_valid(Board grid, int y, int value){
     int x;
@@ -78,7 +80,7 @@ int column_valid(Board grid, int y, int value){
 
 /*renvoie 1 si la valeur se trouve dans la même case, 0 sinon*/
 int box_valid(Board grid, int x, int y, int value){
-    int line, column;
+    int line, column = 0;
 
     for(line=0;line<=2;line++){
         for(column=0;column<=2;column++){
@@ -90,10 +92,10 @@ int box_valid(Board grid, int x, int y, int value){
 
     return 0;
 }
-
+/* idem bool*/
 int permutations (Board grid, int ligne, int colonne)
 {
-    int k;
+    int k = 0;
 
     /*si on sort du sudoku (il n'y a que 9 lignes)*/
     if (ligne > 8)
@@ -110,7 +112,8 @@ int permutations (Board grid, int ligne, int colonne)
     /*la cellule contient un zéro, on doit donc la remplir*/
     for (k=1; k <= 9; k++)
     {
-        if (box_valid(grid,ligne,colonne,k)==0 && line_valid(grid,ligne,k)==0 && column_valid(grid,colonne,k)==0)
+        /*Pour éviter le == 0, tu peux mettre '!' au début permettant de rentrer seulement si la fonction renvoie false donc 0*/
+        if (!box_valid(grid,ligne,colonne,k) && !line_valid(grid,ligne,k) && !column_valid(grid,colonne,k))
         {
             grid[ligne][colonne] = k;
 
